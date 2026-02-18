@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notre Équipe — CV en Ligne</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --blue-deep: #0a1628;
+            --blue-mid: #1d4ed8;
+            --blue-light: #93c5fd;
+            --white: #ffffff;
+            --off-white: #f0f4ff;
+            --muted: #94a3b8;
+            --border: #e2eaf7;
+            --text: #1e293b;
+            --subtle: #475569;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--off-white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── NAVBAR ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 6%;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow .3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 24px rgba(29, 78, 216, .08);
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--blue-deep);
+            letter-spacing: -.02em;
+        }
+
+        .nav-logo span {
+            color: var(--blue-mid);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-mid);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--blue-deep);
+            border-radius: 2px;
+        }
+
+        /* ── HERO ── */
+        #accueil {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 6% 60px;
+            background: var(--blue-deep);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #accueil::before {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(29, 78, 216, .35) 0%, transparent 70%);
+            top: -150px;
+            right: -100px;
+        }
+
+        #accueil::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(147, 197, 253, .12) 0%, transparent 70%);
+            bottom: -100px;
+            left: 5%;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(29, 78, 216, .3);
+            border: 1px solid rgba(147, 197, 253, .3);
+            color: var(--blue-light);
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .4rem 1rem;
+            border-radius: 999px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--blue-light);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero-inner h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 6.5vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            color: var(--white);
+            letter-spacing: -.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-inner h1 em {
+            font-style: normal;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--blue-light);
+        }
+
+        .hero-inner p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            max-width: 440px;
+            margin-bottom: 2.5rem;
+            line-height: 1.75;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            padding: .85rem 2rem;
+            background: var(--blue-mid);
+            color: var(--white);
+            font-size: .92rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background .2s, transform .2s;
+        }
+
+        .hero-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .hero-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .hero-stat span {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-top: .2rem;
+            display: block;
+        }
+
+        /* ── ÉQUIPE ── */
+        #equipe {
+            padding: 80px 6%;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--blue-mid);
+            margin-bottom: .6rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--blue-deep);
+            line-height: 1.15;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            margin-top: .5rem;
+            font-size: .95rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ── CV CARD ── */
+        .cv-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: box-shadow .3s, transform .3s;
+        }
+
+        .cv-card:hover {
+            box-shadow: 0 20px 60px rgba(29, 78, 216, .1);
+            transform: translateY(-3px);
+        }
+
+        /* EN-TÊTE */
+        .cv-header {
+            background: var(--blue-deep);
+            padding: 1.6rem 1.8rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-header::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(29, 78, 216, .5) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Photo */
+        .cv-photo-wrap {
+            position: relative;
+            width: 76px;
+            height: 76px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--blue-mid);
+            overflow: hidden;
+            background: #1a2d4f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            z-index: 1;
+        }
+
+        .cv-photo-wrap input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .cv-photo-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            z-index: 1;
+        }
+
+        .cv-photo-wrap .ph {
+            z-index: 1;
+            line-height: 1;
+        }
+
+        .photo-ov {
+            position: absolute;
+            inset: 0;
+            background: rgba(29, 78, 216, .7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: .58rem;
+            font-weight: 700;
+            gap: .2rem;
+            opacity: 0;
+            transition: opacity .2s;
+            z-index: 2;
+            pointer-events: none;
+            text-align: center;
+        }
+
+        .photo-ov svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .cv-photo-wrap:hover .photo-ov {
+            opacity: 1;
+        }
+
+        .cv-head-info {
+            flex: 1;
+            min-width: 0;
+            z-index: 1;
+        }
+
+        .cv-head-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -.02em;
+            margin-bottom: .2rem;
+        }
+
+        /* Badge chef de groupe */
+        .chef-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            background: rgba(147, 197, 253, .15);
+            border: 1px solid rgba(147, 197, 253, .4);
+            color: var(--blue-light);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .18rem .6rem;
+            border-radius: 999px;
+            margin-bottom: .5rem;
+        }
+
+        .chef-badge::before {
+            content: '★';
+            font-size: .65rem;
+        }
+
+        /* Matricule */
+        .cv-matricule {
+            font-size: .72rem;
+            color: rgba(147, 197, 253, .7);
+            font-weight: 500;
+            margin-bottom: .6rem;
+            letter-spacing: .04em;
+        }
+
+        /* Liens chef de groupe */
+        .cv-links {
+            display: flex;
+            gap: .5rem;
+            margin-top: .4rem;
+        }
+
+        .cv-links a {
+            font-size: .72rem;
+            font-weight: 600;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, .2);
+            padding: .22rem .65rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background .2s, border-color .2s;
+        }
+
+        .cv-links a:hover {
+            background: var(--blue-mid);
+            border-color: var(--blue-mid);
+        }
+
+        /* CORPS */
+        .cv-body {
+            padding: 1.6rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .cv-block-title {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--blue-mid);
+            margin-bottom: .65rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .cv-block-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Infos personnelles en grille */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .55rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: .05rem;
+        }
+
+        .info-label {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .info-value {
+            font-size: .85rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Bio */
+        .cv-bio {
+            font-size: .875rem;
+            color: var(--subtle);
+            line-height: 1.75;
+        }
+
+        /* Skills */
+        .cv-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .cv-skill {
+            font-size: .72rem;
+            font-weight: 500;
+            background: var(--off-white);
+            color: var(--blue-deep);
+            border: 1px solid var(--border);
+            padding: .2rem .6rem;
+            border-radius: 6px;
+            transition: background .2s, color .2s;
+        }
+
+        .cv-skill:hover {
+            background: var(--blue-mid);
+            color: #fff;
+            border-color: var(--blue-mid);
+        }
+
+        /* Langues */
+        .cv-langs {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: .82rem;
+            color: var(--subtle);
+        }
+
+        .lang-badge {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            color: var(--blue-mid);
+            padding: .15rem .5rem;
+            border-radius: 999px;
+        }
+
+        /* Loisirs */
+        .cv-hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .cv-hobby {
+            font-size: .72rem;
+            font-weight: 500;
+            background: rgba(29, 78, 216, .06);
+            color: var(--blue-mid);
+            border: 1px solid rgba(29, 78, 216, .15);
+            padding: .2rem .65rem;
+            border-radius: 6px;
+        }
+
+        /* Timeline */
+        .cv-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: .85rem;
+        }
+
+        .cv-tl-item {
+            display: flex;
+            gap: .9rem;
+            align-items: flex-start;
+        }
+
+        .cv-tl-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--blue-mid);
+            flex-shrink: 0;
+            margin-top: .45rem;
+            box-shadow: 0 0 0 3px rgba(29, 78, 216, .15);
+        }
+
+        .cv-tl-body {
+            flex: 1;
+        }
+
+        .cv-tl-body strong {
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--text);
+            display: block;
+        }
+
+        .cv-tl-body em {
+            font-style: normal;
+            font-size: .78rem;
+            color: var(--blue-mid);
+            font-weight: 600;
+            display: block;
+            margin-bottom: .1rem;
+        }
+
+        .cv-tl-date {
+            font-size: .72rem;
+            color: var(--muted);
+        }
+
+        .cv-tl-body p {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-top: .15rem;
+        }
+
+        /* Niveau */
+        .niveau-wrap {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+        }
+
+        .niveau-label {
+            font-size: .85rem;
+            color: var(--text);
+            font-weight: 500;
+            min-width: 80px;
+        }
+
+        .niveau-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .niveau-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue-mid), var(--blue-light));
+            border-radius: 999px;
+            transition: width 1s ease;
+        }
+
+        /* Deux colonnes */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--blue-deep);
+            color: rgba(255, 255, 255, .35);
+            text-align: center;
+            padding: 2rem;
+            font-size: .82rem;
+        }
+
+        footer span {
+            color: var(--blue-light);
+        }
+
+        /* ── FADE-IN ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s, transform .6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 1.2rem 6%;
+                border-bottom: 1px solid var(--border);
+                gap: 1rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .two-col,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-logo">Mon<span>Équipe</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#equipe">Équipe</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="accueil">
+        <div class="hero-inner fade-in">
+            <div class="hero-badge">Promotion 2024–2025</div>
+            <h1>7 développeurs,<br /><em>une vision.</em></h1>
+            <p>Étudiants passionnés par le web, nous concevons des interfaces modernes, accessibles et fonctionnelles.
+            </p>
+            <a href="#equipe" class="hero-btn">
+                Découvrir l'équipe
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+            <div class="hero-stats">
+                <div class="hero-stat"><strong>7</strong><span>Membres</span></div>
+                <div class="hero-stat"><strong>2025</strong><span>Promotion</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉQUIPE -->
+    <section id="equipe">
+        <div class="section-header fade-in">
+            <span class="section-tag">Les membres</span>
+            <h2>Notre équipe</h2>
+            <p>Le CV complet de chaque membre, en un coup d'œil.</p>
+        </div>
+        <div class="team-grid" id="teamGrid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 <span>MonÉquipe</span> — Fait avec ❤️ en HTML, CSS & JavaScript</p>
+    </footer>
+
+    <script>
+        // ═══════════════════════════════════════════════
+        //   DONNÉES — Remplissez les infos de chacun !
+        //
+        //   chefDeGroupe: true  → affiche badge + GitHub/LinkedIn
+        //   niveau: 0 à 100    → barre de progression
+        // ═══════════════════════════════════════════════
+        const membres = [
+            {
+                id: 1, emoji: "🧑‍💻",
+                chefDeGroupe: true,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-001",
+                naissance: "01/01/2000",
+                lieuNaissance: "Paris, France",
+                adresse: "12 Rue de la Paix, Paris",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 01",
+                email: "membre1@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["HTML5", "CSS3", "JavaScript", "Gestion de projet", "Git"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Anglais", n: "B2" }],
+                loisirs: ["Musique", "Lecture", "Sport", "Voyages"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." },
+                    { date: "2023", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" },
+                    { date: "2022–2024", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 85,
+                github: "#", linkedin: "#"
+            },
+            {
+                id: 2, emoji: "👩‍💻",
+                chefDeGroupe: false,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-002",
+                naissance: "15/03/2001",
+                lieuNaissance: "Lyon, France",
+                adresse: "8 Avenue Jean Jaurès, Lyon",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 02",
+                email: "membre2@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["HTML5", "CSS3", "JavaScript", "Responsive", "Figma"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Anglais", n: "B1" }],
+                loisirs: ["Design", "Photographie", "Cinéma"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 72
+            },
+            {
+                id: 3, emoji: "🧑‍🎨",
+                chefDeGroupe: false,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-003",
+                naissance: "22/07/2000",
+                lieuNaissance: "Marseille, France",
+                adresse: "3 Rue Paradis, Marseille",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 03",
+                email: "membre3@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["Figma", "CSS3", "HTML5", "Wireframing", "Prototypage"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Anglais", n: "B2" }],
+                loisirs: ["Illustration", "Jeux vidéo", "Randonnée"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 78
+            },
+            {
+                id: 4, emoji: "👨‍💻",
+                chefDeGroupe: false,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-004",
+                naissance: "08/11/2001",
+                lieuNaissance: "Bordeaux, France",
+                adresse: "5 Cours de l'Intendance, Bordeaux",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 04",
+                email: "membre4@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["JavaScript", "Node.js", "SQL", "API REST", "Git"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Anglais", n: "B1" }],
+                loisirs: ["Programmation", "Échecs", "Podcast"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 80
+            },
+            {
+                id: 5, emoji: "👩‍🎨",
+                chefDeGroupe: false,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-005",
+                naissance: "30/04/2002",
+                lieuNaissance: "Toulouse, France",
+                adresse: "17 Rue Saint-Rome, Toulouse",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 05",
+                email: "membre5@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["HTML5", "CSS3", "JavaScript", "Accessibilité", "Bootstrap"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Espagnol", n: "A2" }],
+                loisirs: ["Danse", "Cuisine", "Lecture"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 68
+            },
+            {
+                id: 6, emoji: "🧑‍💼",
+                chefDeGroupe: false,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-006",
+                naissance: "12/09/2000",
+                lieuNaissance: "Nantes, France",
+                adresse: "2 Place Royale, Nantes",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 06",
+                email: "membre6@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["HTML5", "CSS3", "JavaScript", "Node.js", "Git"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Anglais", n: "B2" }],
+                loisirs: ["Gaming", "Astronomie", "Cyclisme"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 75
+            },
+            {
+                id: 7, emoji: "👨‍🎨",
+                chefDeGroupe: false,
+                nom: "Prénom Nom",
+                matricule: "MAT-2024-007",
+                naissance: "05/06/2001",
+                lieuNaissance: "Strasbourg, France",
+                adresse: "9 Rue du Vieux Marché, Strasbourg",
+                nationalite: "Française",
+                telephone: "+33 6 00 00 00 07",
+                email: "membre7@email.com",
+                bio: "Décrivez ici votre parcours, vos motivations et ce qui vous passionne dans le développement web.",
+                competences: ["Figma", "CSS3", "HTML5", "Illustration", "Motion Design"],
+                langues: [{ l: "Français", n: "Natif" }, { l: "Anglais", n: "B1" }],
+                loisirs: ["Art numérique", "Musique", "Natation"],
+                parcours: [
+                    { date: "2024", titre: "Nom du parcours / projet", lieu: "Établissement / Entreprise", desc: "Description du parcours ou de l'expérience." }
+                ],
+                formations: [
+                    { date: "2024–2025", diplome: "Nom du diplôme", ecole: "Nom de l'école" }
+                ],
+                niveau: 70
+            }
+        ];
+
+        const photos = {};
+
+        function calcAge(dateStr) {
+            const [j, mo, a] = dateStr.split('/').map(Number);
+            const today = new Date();
+            let age = today.getFullYear() - a;
+            if (today.getMonth() + 1 < mo || (today.getMonth() + 1 === mo && today.getDate() < j)) age--;
+            return age;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.06 });
+
+        function buildCards() {
+            const grid = document.getElementById('teamGrid');
+            membres.forEach((m, i) => {
+                const card = document.createElement('div');
+                card.className = 'cv-card fade-in';
+                card.style.transitionDelay = (i * 70) + 'ms';
+
+                card.innerHTML = `
+      <!-- EN-TÊTE -->
+      <div class="cv-header">
+        <div class="cv-photo-wrap" id="wrap${m.id}">
+          <input type="file" accept="image/*" onchange="uploadPhoto(event,${m.id})"/>
+          <span class="ph">${m.emoji}</span>
+          <img id="photo${m.id}" alt=""/>
+          <div class="photo-ov">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16l4.586-4.586A2 2 0 0111.414 11H13a2 2 0 011.414.586L19 16M14 8h.01
+                   M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Photo
+          </div>
+        </div>
+        <div class="cv-head-info">
+          ${m.chefDeGroupe ? `<div class="chef-badge">Chef de groupe</div>` : ''}
+          <h3>${m.nom}</h3>
+          <div class="cv-matricule">N° ${m.matricule}</div>
+        </div>
+      </div>
+
+      <!-- CORPS -->
+      <div class="cv-body">
+
+        <!-- Infos personnelles -->
+        <div>
+          <div class="cv-block-title">Informations personnelles</div>
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Date de naissance</span>
+              <span class="info-value">${m.naissance}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Âge</span>
+              <span class="info-value">${calcAge(m.naissance)} ans</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Lieu de naissance</span>
+              <span class="info-value">${m.lieuNaissance}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Nationalité</span>
+              <span class="info-value">${m.nationalite}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Adresse</span>
+              <span class="info-value">${m.adresse}</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Téléphone</span>
+              <span class="info-value">${m.telephone}</span>
+            </div>
+            <div class="info-item" style="grid-column: span 2;">
+              <span class="info-label">Email</span>
+              <span class="info-value"><a href="mailto:${m.email}" style="color:var(--blue-mid);text-decoration:none;">${m.email}</a></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compétences + Langues -->
+        <div class="two-col">
+          <div>
+            <div class="cv-block-title">Compétences</div>
+            <div class="cv-skills">
+              ${m.competences.map(s => `<span class="cv-skill">${s}</span>`).join('')}
+            </div>
+          </div>
+          <div>
+            <div class="cv-block-title">Langues</div>
+            <div class="cv-langs">
+              ${m.langues.map(lg => `
+                <div class="lang-row">
+                  <span>${lg.l}</span>
+                  <span class="lang-badge">${lg.n}</span>
+                </div>`).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Loisirs -->
+        <div>
+          <div class="cv-block-title">Loisirs</div>
+          <div class="cv-hobbies">
+            ${m.loisirs.map(h => `<span class="cv-hobby">${h}</span>`).join('')}
+          </div>
+        </div>
+
+        <!-- Parcours -->
+        <div>
+          <div class="cv-block-title">Parcours</div>
+          <div class="cv-timeline">
+            ${m.parcours.map(p => `
+              <div class="cv-tl-item">
+                <div class="cv-tl-dot"></div>
+                <div class="cv-tl-body">
+                  <strong>${p.titre}</strong>
+                  <em>${p.lieu}</em>
+                  <span class="cv-tl-date">${p.date}</span>
+                  <p>${p.desc}</p>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>
+
+        <!-- Formation -->
+        <div>
+          <div class="cv-block-title">Formation</div>
+          <div class="cv-timeline">
+            ${m.formations.map(f => `
+              <div class="cv-tl-item">
+                <div class="cv-tl-dot"></div>
+                <div class="cv-tl-body">
+                  <strong>${f.diplome}</strong>
+                  <em>${f.ecole}</em>
+                  <span class="cv-tl-date">${f.date}</span>
+                </div>
+              </div>`).join('')}
+          </div>
+        </div>
+
+      </div>`;
+
+                grid.appendChild(card);
+                observer.observe(card);
+            });
+
+            // Animer les barres de niveau après apparition
+            setTimeout(() => {
+                document.querySelectorAll('.niveau-fill').forEach(bar => {
+                    bar.style.width = bar.dataset.niveau + '%';
+                });
+            }, 400);
+        }
+
+        function uploadPhoto(event, id) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                photos[id] = e.target.result;
+                const img = document.getElementById('photo' + id);
+                const ph = document.querySelector(`#wrap${id} .ph`);
+                img.src = e.target.result; img.style.display = 'block';
+                if (ph) ph.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 30));
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        buildCards();
+    </script>
+</body>
+
+</html>
