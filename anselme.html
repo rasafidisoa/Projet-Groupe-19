@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Anselme</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4ece2;
+            color: #3e3e3e;
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .portfolio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: #8c6a4a;
+            color: #fffaf0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Roboto Slab', serif;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* PHOTO */
+        .photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #e2c28d;
+            overflow: hidden;
+            margin: 20px auto 5px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .name-under-photo {
+            font-family: 'Roboto Slab', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            width: 90%;
+            max-width: 1000px;
+            background-color: #fffaf0;
+            border-left: 6px solid #e2c28d;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-family: 'Roboto Slab', serif;
+            margin-bottom: 15px;
+        }
+
+        section p, section li {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background-color: #fffaf0;
+            border: 2px solid #e2c28d;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card h3 { padding: 15px; }
+        .card p { padding: 0 15px 15px 15px; }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 25px 0;
+            background-color: #8c6a4a;
+            color: #fffaf0;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        .footer-nav a {
+            margin: 0 10px;
+            font-weight: 600;
+        }
+
+        @media(max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header"></div>
+
+<div class="portfolio">
+
+    <div class="photo">
+        <img src="anselme.jpg" alt="Photo de profil Anselme">
+    </div>
+
+    <div class="name-between-photo">         Razafison Jaofera Van Der Anselme</div>
+
+    <section id="about">
+        <h2>Profil</h2>
+        <p>Étudiant en premiere anneé à l'université EMIT à Fianarantsoa. Innovant, dynamique, organisé et motivé. Je suis un etudiant determiné à étudier.<br> <br> <br> <br> Date de naissance: 25 juillet 2008.<br><br> Âge: 17ans.<br><br>Lieu de naissance: Tamatave <br><br> Etude universitaire: parcours DA2I(Developpement D'application Intranet Internet  </p>
+    </section>
+
+    <section id="skills">
+        <h2>Compétences</h2>
+        <ul>
+            <li>HTML / CSS</li>
+            <li>Python</li>
+            <li>Communication</li>
+            <li>Gestion d'équipe</li>
+            <li>Travail collaboratif</li>
+            <li>Langues : Malagasy, Français, Anglais</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <h2>Expérience professionnelle</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Coordination en travail d'équipe</h3>
+                <p>Expérience dans la coordination et la gestion de projets collaboratifs.</p>
+            </div>
+            <div class="card">
+                <h3>Analyse scientifique</h3>
+                <p>Suivi et analyse des résultats scientifiques.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Dîplomes</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>BEPC</h3>
+                <p>2020-2021 : Obtention du BEPC</p>
+            </div>
+            <div class="card">
+                <h3>BACC</h3>
+                <p>2024-2025 : Obtention du BACC</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Numéro : 0382186817<br>Email : razafisonvander@gmail.com<br>Lieu : Andrainjato</p>
+    </section>
+
+    <!-- FOOTER (inchangé) -->
+    <div class="footer">
+        <div class="footer-nav">
+            <a href="#about">À propos</a>
+            <a href="#skills">Compétences</a>
+            <a href="#experience">Expérience</a>
+            <a href="#education">Éducation</a>
+            <a href="#contact">Contact</a>
+        </div>
+        &copy; 2026 Anselme. Tous droits réservés par Anselme Razafison
+    </div>
+
+</div>
+
+</body>
+</html>
