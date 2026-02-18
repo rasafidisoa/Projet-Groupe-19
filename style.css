@@ -1,14 +1,13 @@
-/* Fix for .page-equipe selector syntax error and addition of missing CSS variables */
-
 :root {
-    --primary-color: #3498db;
-    --accent-color: #e74c3c;
+  --primary-color: #3498db;
+  --accent-color: #e74c3c;
 }
 
 .page-equipe {
-    /* Corrected syntax here */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
 }
+
+/* Other existing CSS rules */
